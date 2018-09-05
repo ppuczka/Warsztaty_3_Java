@@ -21,11 +21,11 @@
             <th>e-mail</th>
         </tr>
         
-        <c:forEach items="users" var="user">
+        <c:forEach items="${users}" var="user">
             <tr>
                 <td>${user.id}</td>
                 <td>${user.username}</td>
-                <td>${user.email}</td>
+                <td><a href="/UserDetails?id=${user.id}">Szczegóły Użytkownika</a> </td>
             </tr>
         </c:forEach>
 

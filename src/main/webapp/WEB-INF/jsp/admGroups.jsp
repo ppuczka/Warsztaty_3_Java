@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: vampirec
-  Date: 04/09/2018
-  Time: 22:48
+  Date: 05/09/2018
+  Time: 21:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,25 +10,30 @@
 
 <html>
 <head>
-    <title>allGroups</title>
+    <title>admGroups</title>
 </head>
-    <table border="1" style="width: 75%">
+<body>
+    <table border="1" style="width: 75%"><br>
+        <h3>Lista wszystkich grup</h3>
         <tr>
-
             <th>Nazwa Grupy</th>
             <th>Id</th>
+
         </tr>
-            <c:forEach items="${allGroups}" var="group">
+        <c:forEach items="${groups}" var="group">
         <tr>
             <td>${group.groupId}</td>
             <td>${group.name}</td>
-            <td><a href="/UserGroup?id=${group.groupId}">Wyświetl listę użytkowników</a></td>
+            <td><a href="/manage?id=${group.groupId}">Edytuj/Usuń</a></td>
+
         </tr>
-            </c:forEach>
+        </c:forEach>
+
     </table>
+        <br>
+        <a href="/manage?id=0">Dodaj nową grupę</a><br>
 
-<body>
-
+        <%@include file="footer.jsp"%>
 
 </body>
 </html>
