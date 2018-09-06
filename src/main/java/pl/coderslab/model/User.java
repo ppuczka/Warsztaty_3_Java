@@ -18,6 +18,12 @@ public class User extends Group {
     public User() {
         }
 
+    public User(int id, String username, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+    }
+
     public User(String name, int groupId, int id, String username, String password, String email) {
         super(groupId, name);
         this.id = id;
@@ -93,14 +99,14 @@ public class User extends Group {
 
     public void saveUserToDB(Connection conn) throws SQLException {
         if (this.id == 0) {
-            String sql = "INSERT INTO Users(username, email, password, person_group_id) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Users(username, email, password) VALUES (?, ?, ?)";
             String generatedColumns[] = {"ID"};
             PreparedStatement preparedStatement;
             preparedStatement = conn.prepareStatement(sql, generatedColumns);
             preparedStatement.setString(1, this.username);
             preparedStatement.setString(2, this.email);
             preparedStatement.setString(3, this.password);
-            preparedStatement.setInt(4,this.groupId);
+//            preparedStatement.setInt(4,this.groupId);
             preparedStatement.executeUpdate();
             ResultSet rs = preparedStatement.getGeneratedKeys();
             if (rs.next()) {

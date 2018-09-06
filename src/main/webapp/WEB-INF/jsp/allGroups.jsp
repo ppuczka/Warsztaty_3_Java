@@ -12,6 +12,7 @@
 <head>
     <title>allGroups</title>
 </head>
+<%@include file="headerAdm.jsp"%>
     <table border="1" style="width: 75%">
         <tr>
 

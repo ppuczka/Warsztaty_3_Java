@@ -36,6 +36,7 @@
 
     </table>
 
+    <h4><a href ="/panel">Zaloguj się do Panelu Administracyjnego</a></h4>
     <%@ include file="footer.jsp"%>
 
 </body>

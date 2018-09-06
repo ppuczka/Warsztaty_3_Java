@@ -18,8 +18,8 @@
     <h2>Witaj w panelu administracyjnym aplikacji: </h2>
 
     <a href="/admGroup">Lista grup</a><br>
-    <a href="">Lista użytkowników</a><br>
-    <a href="">Lista zadań</a>
+    <a href="/admUser">Lista użytkowników</a><br>
+    <a href="/admExe">Lista zadań</a>
 
 <%@include file="footer.jsp"%>
 </body>

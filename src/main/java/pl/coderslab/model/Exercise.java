@@ -17,6 +17,11 @@ public class Exercise extends User {
 
     }
 
+    public Exercise(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public Exercise(String name, int groupId, int id, String username, String password, String email, int id1, String title, String description) {
         super(name, groupId, id, username, password, email);
         this.id = id1;

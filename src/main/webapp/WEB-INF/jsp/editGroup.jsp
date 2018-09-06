@@ -12,16 +12,18 @@
     <title>editGroup</title>
 </head>
 <body>
-<%@include file="header.jsp"%>
-   <c:choose>
-   <c:when test="${id != 0}"> >
+<%@include file="headerAdm.jsp"%>
+<c:choose>
+   <c:when test="${id != 0}">
 
     <h5>Podaj nową nazwę dla grupy o id ${id}:</h5>
         <form method="post" action="/admGroup">
 
             <input type="hidden" value="${id}" name="id">
             <input type="text" value="Nazwa grupy" name="groupName">
-            <input type="submit" value="Zatwierdź">
+            <input type="submit" value="Zatwierdź"><br>
+
+            <%--zastanów się jak dodać funkcję usunięcia grupy --%>
 
         </form>
        </c:when>

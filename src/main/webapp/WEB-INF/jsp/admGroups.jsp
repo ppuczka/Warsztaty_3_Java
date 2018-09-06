@@ -13,6 +13,7 @@
     <title>admGroups</title>
 </head>
 <body>
+<%@include file="headerAdm.jsp"%>
     <table border="1" style="width: 75%"><br>
         <h3>Lista wszystkich grup</h3>
         <tr>
@@ -24,14 +25,14 @@
         <tr>
             <td>${group.groupId}</td>
             <td>${group.name}</td>
-            <td><a href="/manage?id=${group.groupId}">Edytuj/Usuń</a></td>
+            <td><a href="/manageGroup?id=${group.groupId}">Edytuj/Usuń</a></td>
 
         </tr>
         </c:forEach>
 
     </table>
         <br>
-        <a href="/manage?id=0">Dodaj nową grupę</a><br>
+        <a href="/manageGroup?id=0">Dodaj nową grupę</a><br>
 
         <%@include file="footer.jsp"%>
 
