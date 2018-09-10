@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import static pl.coderslab.model.Group.loadAllGroups;
+import static pl.coderslab.dao.GroupDao.loadAllGroups;
+import static pl.coderslab.dao.GroupDao.saveGrouptoDB;
 
 @WebServlet(name = "AdmGroup", urlPatterns = "/admGroup")
 public class AdmGroup extends HttpServlet {
@@ -22,7 +23,7 @@ public class AdmGroup extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Group group = new Group(id, groupName);
         try {
-            group.savetoDB(DbUtil.getConn());
+            saveGrouptoDB(group);
         } catch (SQLException e) {
 
         }
@@ -34,7 +35,7 @@ public class AdmGroup extends HttpServlet {
 
         try {
 
-            ArrayList<Group> groups = loadAllGroups(DbUtil.getConn());
+            ArrayList<Group> groups = loadAllGroups();
             request.setAttribute("groups", groups);
 
         }catch (SQLException e) {

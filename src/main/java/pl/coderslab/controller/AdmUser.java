@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
-import pl.coderslab.model.Group;
+
+import pl.coderslab.dao.UserDao;
 import pl.coderslab.model.User;
 import pl.coderslab.utils.DbUtil;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import static pl.coderslab.model.User.loadAllUsers;
+import static pl.coderslab.dao.UserDao.saveUserToDb;
 
 @WebServlet(name = "AdmUser", urlPatterns = "/admUser")
 public class AdmUser extends HttpServlet {
@@ -25,7 +26,8 @@ public class AdmUser extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = new User(id, userName, email, pass);
         try {
-            user.saveUserToDB(DbUtil.getConn());
+            saveUserToDb(user);
+
         } catch (SQLException e) {
 
         }
@@ -36,10 +38,10 @@ public class AdmUser extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            ArrayList<User> users = loadAllUsers(DbUtil.getConn());
+            ArrayList<User> users = UserDao.loadAllUsers();
             request.setAttribute("users", users);
 
-        } catch (SQLException e ) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         getServletContext().getRequestDispatcher("/WEB-INF/jsp/admUsers.jsp").forward(request, response);

@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static pl.coderslab.dao.SolutionDao.loadLimitSolutions;
+
 
 @WebServlet(name = "StartPage", urlPatterns = "/")
 public class StartPage extends HttpServlet {
@@ -26,7 +28,7 @@ public class StartPage extends HttpServlet {
         int limit = Integer.parseInt(getServletContext().getInitParameter("number-solutions"));
 
         try {
-            ArrayList<Solution> PrintSolutions = solution.loadAllSolutions(DbUtil.getConn(), limit);
+            ArrayList<Solution> PrintSolutions = loadLimitSolutions(limit);
             request.setAttribute("loadAllSolutions", PrintSolutions);
 
         } catch (SQLException e) {

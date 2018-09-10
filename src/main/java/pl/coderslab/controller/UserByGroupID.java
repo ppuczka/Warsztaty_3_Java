@@ -12,7 +12,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static pl.coderslab.dao.UserDao.loadAllUsersByGroupId;
+
 @WebServlet(name = "UserByGroupID", urlPatterns = "/UserGroup")
+
 public class UserByGroupID extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,10 +24,9 @@ public class UserByGroupID extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = new User();
 
         try {
-            ArrayList<User> users = user.loadAllByGroupId(DbUtil.getConn(), id);
+            ArrayList<User> users = loadAllUsersByGroupId(id);
             request.setAttribute("users", users);
         } catch (SQLException e) {
             e.printStackTrace();

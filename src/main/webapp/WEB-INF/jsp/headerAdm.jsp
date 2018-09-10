@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Panel administracyjny<br></h1>
-<a href ="/panel">Strona Główna Panelu<br><br></a>
+<a href ="/authServlet">Strona Główna Panelu<br><br></a>
 <a href ="/">Panel użytkonika</a>
 </body>
 </html>

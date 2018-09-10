@@ -7,16 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Panel", urlPatterns = "/panel")
-public class Panel extends HttpServlet {
+@WebServlet(name = "Auth", urlPatterns = "/authServlet")
+public class Auth extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-        getServletContext().getRequestDispatcher("/WEB-INF/jsp/panel.jsp").forward(request,response);
+
+        getServletContext().getRequestDispatcher("/WEB-INF/jsp/auth.jsp").forward(request, response);
 
     }
 }

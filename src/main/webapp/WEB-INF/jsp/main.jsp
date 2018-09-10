@@ -7,8 +7,6 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="pl.coderslab.model.Solution"%>
-<%@ page import="java.util.ArrayList"%>
 
 <html>
 <head>
@@ -36,7 +34,7 @@
 
     </table>
 
-    <h4><a href ="/panel">Zaloguj się do Panelu Administracyjnego</a></h4>
+    <h4><a href ="/authServlet">Zaloguj się do Panelu Administracyjnego</a></h4>
     <%@ include file="footer.jsp"%>
 
 </body>

@@ -13,6 +13,8 @@ import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static pl.coderslab.dao.GroupDao.loadAllGroups;
+
 @WebServlet(name = "AllGroups", urlPatterns = "/AllGroups")
 public class AllGroups extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +26,7 @@ public class AllGroups extends HttpServlet {
         Group group = new Group();
 
         try {
-            ArrayList<Group> allGroups = group.loadAllGroups(DbUtil.getConn());
+            ArrayList<Group> allGroups = loadAllGroups();
             request.setAttribute("allGroups", allGroups);
         } catch (SQLException e) {
             e.printStackTrace();
